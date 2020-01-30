@@ -104,7 +104,7 @@
 
       /* find tags wrapper */
 
-      const taglist = article.querySelectorAll(optArticleTagsSelector);
+      const taglist = article.querySelector(optArticleTagsSelector);
       console.log('taglist', taglist);
 
       /* make html variable with empty string */
@@ -118,7 +118,7 @@
 
       /* split tags into array */
 
-      const articleTagsArray = articleTags.split(' ');
+      const articleTagsArray = articleTags.split('  ');
       console.log('articleTagsArray', articleTagsArray);
 
       /* START LOOP: for each tag */
@@ -133,11 +133,12 @@
 
         /* add generated code to html variable */
 
-        html = html + linkHTML;
+        html = html + linkHTML + '';
 
         /* END LOOP: for each tag */
       
       }
+      taglist.innerHTML = html;
 
       /* insert HTML of all the links into the tags wrapper */
 
