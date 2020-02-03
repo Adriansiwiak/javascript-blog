@@ -117,4 +117,25 @@
     }
   }
   addClickListenersToTags();
+  function generateAuthors() {
+    /* find all authors */
+    const articles = document.querySelectorAll(optArticleSelector);
+    /* Start loop for every article */
+    for (let article of articles) {
+      /* find author wraper */
+      const authorWrapper = article.querySelector(optArticleAuthorSelector);
+      /* make html variable with empty string */
+      let html = '';
+      /* get author from data-author attribute */
+      const articleAuthor = article.getAttribute('data-author');
+      /* generate HTML of the link */
+      const authorLinkHTML = '<a href="#' + articleAuthor + '">' + articleAuthor + '</a>';
+      /* add generated code to html variable */
+      html = html + authorLinkHTML;
+      /* insert HTML link into the author wrapper */
+      authorWrapper.innerHTML = html;
+      /* End loop */
+    }
+  }
+  generateAuthors();
 }
